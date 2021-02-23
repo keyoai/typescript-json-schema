@@ -916,6 +916,9 @@ var JsonSchemaGenerator = (function () {
         if (prop) {
             this.parseCommentsIntoDefinition(prop, returnedDefinition, otherAnnotations);
         }
+        if (pairedSymbol && symbol && this.isFromDefaultLib(symbol)) {
+            this.parseCommentsIntoDefinition(pairedSymbol, definition, otherAnnotations);
+        }
         if (!asRef || !this.reffedDefinitions[fullTypeName]) {
             if (asRef) {
                 var reffedDefinition = void 0;
